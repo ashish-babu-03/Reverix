@@ -28,6 +28,8 @@ class SecurityConfig(
                 it.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
             }
             .authorizeHttpRequests {
+                it.requestMatchers(org.springframework.http.HttpMethod.OPTIONS, "/**").permitAll()
+
                 // ✅ Static files — added
                 it.requestMatchers(
                     "/",
