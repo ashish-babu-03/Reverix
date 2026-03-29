@@ -29,7 +29,8 @@ class SecurityConfig(
                 it.requestMatchers(
                     "/api/auth/**",
                     "/api/movies/**",
-                    "/api/theatres/**"
+                    "/api/theatres/**",
+                    "/api/recommend/**"
                 ).permitAll()
                 it.anyRequest().authenticated()
             }
