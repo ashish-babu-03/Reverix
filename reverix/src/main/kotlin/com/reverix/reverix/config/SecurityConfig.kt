@@ -3,6 +3,7 @@ package com.reverix.reverix.config
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.security.authentication.AuthenticationManager
+import org.springframework.security.config.Customizer
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration
 import org.springframework.security.config.annotation.web.builders.HttpSecurity
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity
@@ -21,17 +22,35 @@ class SecurityConfig(
     @Bean
     fun securityFilterChain(http: HttpSecurity): SecurityFilterChain {
         http
+            .cors(Customizer.withDefaults())
             .csrf { it.disable() }
             .sessionManagement {
                 it.sessionCreationPolicy(SessionCreationPolicy.STATELESS)
             }
             .authorizeHttpRequests {
+                // ✅ Static files — added
+                it.requestMatchers(
+                    "/",
+                    "/index.html",
+                    "/static/**",
+                    "/css/**",
+                    "/js/**",
+                    "/images/**",
+                    "/*.ico",
+                    "/*.png",
+                    "/*.json"
+                ).permitAll()
+
+                // Your existing API routes — unchanged
                 it.requestMatchers(
                     "/api/auth/**",
                     "/api/movies/**",
                     "/api/theatres/**",
-                    "/api/recommend/**"
+                    "/api/recommend/**",
+                    "/api/shows/**",
+                    "/api/seats/**",
                 ).permitAll()
+
                 it.anyRequest().authenticated()
             }
             .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter::class.java)

@@ -19,12 +19,14 @@ class RecommendationService(
     private val theatreRepository: TheatreRepository,
     private val objectMapper: ObjectMapper
 ) {
-
     @Value("\${openrouter.api.key}")
     private lateinit var openRouterApiKey: String
 
     @Value("\${openrouter.api.url}")
     private lateinit var openRouterApiUrl: String
+
+    @Value("\${openrouter.model}")                        // ✅ Add this
+    private lateinit var openRouterModel: String          // ✅ Add this
 
     private val restTemplate = RestTemplate()
 
@@ -37,7 +39,7 @@ class RecommendationService(
         )
 
         val recommendedMovies = filterMoviesByMood(
-            allMovies, request.moodPrompt, aiAnalysis.suggestedGenres
+            allMovies, request.mood, aiAnalysis.suggestedGenres
         )
 
         val recommendedTheatres = filterTheatresByGroup(
@@ -92,7 +94,7 @@ class RecommendationService(
         val prompt = """
             You are a movie recommendation AI for Reverix, a smart movie booking app.
             
-            User mood: "${request.moodPrompt}"
+            User mood: "${request.mood}"
             Group type: ${request.groupType}
             Group size: ${request.groupSize}
             City: ${request.city}
@@ -112,7 +114,7 @@ class RecommendationService(
 
         return try {
             val requestBody = mapOf(
-                "model" to "mistralai/mistral-7b-instruct:free",
+                "model" to openRouterModel,
                 "messages" to listOf(
                     mapOf(
                         "role" to "user",

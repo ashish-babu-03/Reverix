@@ -1,7 +1,7 @@
 package com.reverix.reverix.dto
 
 data class MoodRequest(
-    val moodPrompt: String,
+    val mood: String,
     val city: String,
     val groupType: String,
     val groupSize: Int = 1,
