@@ -12,7 +12,6 @@ class CorsConfig {
     @Bean
     fun corsFilter(): CorsFilter {
         val config = CorsConfiguration()
-        config.allowCredentials = true
         config.allowedOrigins = listOf("*")
         config.allowCredentials = false
         config.allowedHeaders = listOf("*")
