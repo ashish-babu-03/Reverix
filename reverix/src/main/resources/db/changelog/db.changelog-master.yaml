@@ -1,5 +1,4 @@
 databaseChangeLog:
-
   - changeSet:
       id: 001-create-users
       author: Ashish Babu
