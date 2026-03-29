@@ -535,7 +535,10 @@
         const h = {};
         if (jwt) h['Authorization'] = 'Bearer ' + jwt;
         if (opts.body) h['Content-Type'] = 'application/json';
-        const url = 'https://reverix-production.up.railway.app' + (path.startsWith('/') ? path : '/' + path);
+        const url = 'https://reverix-production.up.railway.app' + path.startsWith('/');
+
+        console.log(API);
+
         return fetch(url, { ...opts, headers: { ...h, ...(opts.headers||{}) } });
     }
     function fmt(dt) {
