@@ -1,82 +1,191 @@
-# 🎬 Reverie – Personalized Movie Experience Platform
+# Reverix — AI-Powered Movie Booking
 
-Reverie is an intelligent movie discovery and booking platform that goes beyond traditional ticketing systems by personalizing the entire cinema experience based on user mood, preferences, and social context.
+Reverix is a smart movie booking platform that recommends movies, theatres, and seats based on your mood and group type — powered by a real AI recommendation engine.
 
-Unlike conventional platforms, Reverie focuses not just on *what to watch*, but also *where and how to watch*, creating a tailored movie experience for every user.
-
----
-
-## 🚀 Features
-
-* 🎯 **Mood-Based Movie Recommendation**
-  Get movie suggestions based on your current mood (e.g., mass entertainer, feel-good, emotional, thriller).
-
-* 🧑‍🤝‍🧑 **Group-Aware Suggestions**
-  Recommendations adapt based on whether you're watching with friends, family, partner, or alone.
-
-* 🏟 **Theatre Experience Classification**
-  Discover theatres categorized by real user sentiment:
-
-  * 🔥 Mass / Celebration-friendly
-  * 🤫 Silent / Premium experience
-  * 👨‍👩‍👧 Family-friendly environments
-
-* 💺 **Smart Seat Recommendation**
-  Automatically suggests optimal seats based on group type and viewing preference.
-
-* 🧑‍🤝‍🧑 **Movie Buddy System (Optional)**
-  Connect with other solo movie-goers and experience movies together.
-
-* ⭐ **Live Ratings & Experience Feedback**
-  Real-time theatre insights powered by user reviews and ratings.
-
-* 💎 **Premium Booking System**
-  Early access ticket booking with queue-based (FIFO) priority for premium users.
+Built with Spring Boot + Kotlin on the backend and a custom HTML/CSS/JS frontend.
 
 ---
 
-## 🧠 Tech Stack
+## What makes it different from BookMyShow
 
-* **Backend:** Spring Boot
-* **Database:** MySQL
-* **Caching (Planned):** Redis (for seat locking & performance)
-* **APIs:** External Movie Data APIs (e.g., TMDB)
-* **Architecture:** RESTful microservice-ready design
-
----
-
-## 🧩 System Design Highlights
-
-* Scalable seat booking system with concurrency handling
-* Rule-based recommendation engine (extendable to AI/ML models)
-* User behavior-driven personalization
-* Modular architecture for future microservices expansion
+| Feature | BookMyShow | Reverix |
+|---|---|---|
+| Movie discovery | Browse manually | AI picks based on your mood |
+| Theatre selection | List by distance | Classified by vibe (CELEBRATION, FAMILY, DATE_NIGHT, SILENT) |
+| Seat selection | Manual | Recommended by group type |
+| Group awareness | None | Adapts for solo / couple / friends / family |
+| Premium access | None | CinePrime FIFO early-access queue |
 
 ---
 
-## 🎯 Vision
+## Tech Stack
 
-Reverie aims to redefine how people experience movies by combining personalization, social interaction, and real-time theatre intelligence into a single platform.
-
----
-
-## 📌 Future Enhancements
-
-* 🤖 AI-driven recommendation engine (LLM integration)
-* 📊 Sentiment analysis on theatre reviews
-* 🔔 Real-time notifications & alerts
-* 📱 Mobile app integration
-* 🌐 Full-scale deployment with cloud infrastructure
-
----
-
-## 🤝 Contributing
-
-Contributions, ideas, and feedback are welcome!
-Feel free to fork the repo and submit a pull request.
+| Layer | Technology |
+|---|---|
+| Language | Kotlin 1.9.22 |
+| Framework | Spring Boot 3.2.3 |
+| Security | Spring Security + JWT (jjwt 0.12.3) |
+| Database | MySQL + Liquibase migrations |
+| Movie Data | TMDb API |
+| AI Engine | OpenRouter + Llama 3.3 70B (free tier) |
+| Build | Gradle Kotlin DSL |
+| Frontend | Vanilla HTML / CSS / JS |
 
 ---
 
-## 📄 License
+## Features
 
-This project is open-source and available under the MIT License.
+**AI Mood Recommendation**
+Send your mood in plain text ("I feel adventurous", "want something emotional") and the engine calls an LLM to extract genres, match movies from the database, and return ranked recommendations with reasoning.
+
+**Theatre Vibe Classification**
+8 Chennai theatres seeded with vibe types. The recommendation engine matches group type → vibe:
+- Friends → CELEBRATION
+- Family → FAMILY
+- Couple → DATE_NIGHT
+- Solo → SILENT
+
+**Seat Booking Flow**
+1. Browse movies from TMDb (live data)
+2. Pick a show
+3. Select seats (FRONT / MIDDLE / BACK zones)
+4. Seats lock for 10 minutes during payment
+5. Confirm booking → stored against your account
+
+**JWT Auth**
+Register and login return a signed JWT. All booking endpoints require `Authorization: Bearer <token>`.
+
+**CinePrime**
+Premium users get FIFO early access to shows marked `is_prime_early_access = true`.
+
+---
+
+## API Endpoints
+
+### Auth
+```
+POST /api/auth/register
+POST /api/auth/login
+```
+
+### Movies
+```
+GET /api/movies/now-playing
+GET /api/movies/popular
+GET /api/movies/search?query=
+GET /api/movies/{id}
+GET /api/movies/rentable
+```
+
+### Theatres
+```
+GET /api/theatres
+GET /api/theatres/city/{city}
+GET /api/theatres/city/{city}/vibe/{vibeType}
+GET /api/theatres/{id}
+GET /api/theatres/recommend?city=Chennai&groupType=friends
+```
+
+### AI Recommendation
+```
+POST /api/recommend
+Body: {
+  "mood": "adventurous",
+  "groupType": "friends",
+  "groupSize": 4,
+  "city": "Chennai",
+  "preferredZone": "MIDDLE"
+}
+```
+
+### Bookings (JWT required)
+```
+POST   /api/bookings/lock-seats
+POST   /api/bookings/confirm
+DELETE /api/bookings/{id}
+GET    /api/bookings/my-bookings
+GET    /api/bookings/recommend-seats?showId=&groupType=&groupSize=
+```
+
+---
+
+## Running Locally
+
+### Prerequisites
+- Java 17
+- MySQL running on port 3306
+- TMDb API key → [themoviedb.org](https://www.themoviedb.org/settings/api)
+- OpenRouter API key → [openrouter.ai/settings/keys](https://openrouter.ai/settings/keys)
+
+### Setup
+
+1. Clone the repo
+```bash
+git clone https://github.com/ashish-babu-03/Reverix.git
+cd Reverix/reverix
+```
+
+2. Create the database
+```sql
+CREATE DATABASE reverix_db;
+```
+
+3. Set your keys in `src/main/resources/application.properties`
+```properties
+tmdb.api.key=YOUR_TMDB_KEY
+openrouter.api.key=YOUR_OPENROUTER_KEY
+openrouter.model=meta-llama/llama-3.3-70b-instruct:free
+```
+
+4. Run
+```bash
+./gradlew bootRun
+```
+
+5. Open `http://localhost:8080` in your browser
+
+Liquibase will create all 6 tables automatically on first run. 8 Chennai theatres are seeded on startup.
+
+---
+
+## Database Schema
+
+```
+users        → id, name, email, password, phone, role
+theatres     → id, name, location, city, vibe_type, screen_size, avg_rating
+movies       → id, tmdb_id, title, genre, language, mood_tags, poster_url, rating
+shows        → id, movie_id, theatre_id, show_time, available_seats, price, is_prime_early_access
+seats        → id, show_id, seat_number, zone, status, locked_by_user_id, locked_until
+bookings     → id, user_id, show_id, seat_ids, total_amount, status, is_prime_booking
+```
+
+---
+
+## Project Structure
+
+```
+com.reverix.reverix
+├── config/         → JWT filter, Security config
+├── model/          → JPA entities (User, Movie, Theatre, Show, Seat, Booking)
+├── repository/     → Spring Data JPA repositories
+├── dto/            → Request/Response data classes
+├── service/        → Business logic + AI recommendation + TMDb integration
+└── controller/     → REST endpoints
+```
+
+---
+
+## Environment Variables
+
+| Key | Description |
+|---|---|
+| `tmdb.api.key` | TMDb API key for live movie data |
+| `openrouter.api.key` | OpenRouter key for LLM calls |
+| `openrouter.model` | Model ID (default: `meta-llama/llama-3.3-70b-instruct:free`) |
+| `app.jwt.secret` | JWT signing secret (change in production) |
+
+---
+
+## License
+
+MIT
