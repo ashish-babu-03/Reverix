@@ -1,6 +1,6 @@
 package com.reverix.reverix.service
 
-import com.reverix.reverix.repos.UserRepository
+import com.reverix.reverix.repository.UserRepository
 import org.springframework.stereotype.Service
 
 @Service

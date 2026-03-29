@@ -1,13 +1,13 @@
 package com.reverix.reverix.service
 
-import com.reverix.reverix.entities.Seat
-import com.reverix.reverix.entities.SeatStatus
-import com.reverix.reverix.entities.SeatZone
-import com.reverix.reverix.entities.Show
-import com.reverix.reverix.repos.MovieRepository
-import com.reverix.reverix.repos.SeatRepository
-import com.reverix.reverix.repos.ShowRepository
-import com.reverix.reverix.repos.TheatreRepository
+import com.reverix.reverix.entity.Seat
+import com.reverix.reverix.entity.SeatStatus
+import com.reverix.reverix.entity.SeatZone
+import com.reverix.reverix.entity.Show
+import com.reverix.reverix.repository.MovieRepository
+import com.reverix.reverix.repository.SeatRepository
+import com.reverix.reverix.repository.ShowRepository
+import com.reverix.reverix.repository.TheatreRepository
 import org.springframework.boot.ApplicationArguments
 import org.springframework.boot.ApplicationRunner
 import org.springframework.core.annotation.Order

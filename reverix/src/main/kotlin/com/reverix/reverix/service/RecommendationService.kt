@@ -3,11 +3,11 @@ package com.reverix.reverix.service
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.reverix.reverix.dto.*
-import com.reverix.reverix.entities.Movie
-import com.reverix.reverix.entities.SeatZone
-import com.reverix.reverix.entities.Theatre
-import com.reverix.reverix.repos.MovieRepository
-import com.reverix.reverix.repos.TheatreRepository
+import com.reverix.reverix.entity.Movie
+import com.reverix.reverix.entity.SeatZone
+import com.reverix.reverix.entity.Theatre
+import com.reverix.reverix.repository.MovieRepository
+import com.reverix.reverix.repository.TheatreRepository
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.http.*
 import org.springframework.stereotype.Service

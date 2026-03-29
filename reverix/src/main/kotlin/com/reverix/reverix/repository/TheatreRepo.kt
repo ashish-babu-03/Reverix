@@ -1,7 +1,7 @@
-package com.reverix.reverix.repos
+package com.reverix.reverix.repository
 
-import com.reverix.reverix.entities.Theatre
-import com.reverix.reverix.entities.VibeType
+import com.reverix.reverix.entity.Theatre
+import com.reverix.reverix.entity.VibeType
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.stereotype.Repository
 

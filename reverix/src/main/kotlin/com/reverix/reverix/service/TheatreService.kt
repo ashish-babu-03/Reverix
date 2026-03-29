@@ -1,9 +1,9 @@
 package com.reverix.reverix.service
 
-import com.reverix.reverix.entities.Theatre
-import com.reverix.reverix.entities.VibeType
-import com.reverix.reverix.entities.ScreenSize
-import com.reverix.reverix.repos.TheatreRepository
+import com.reverix.reverix.entity.Theatre
+import com.reverix.reverix.entity.VibeType
+import com.reverix.reverix.entity.ScreenSize
+import com.reverix.reverix.repository.TheatreRepository
 import org.springframework.boot.ApplicationArguments
 import org.springframework.boot.ApplicationRunner
 import org.springframework.core.annotation.Order

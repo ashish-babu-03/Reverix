@@ -4,8 +4,8 @@ import com.reverix.reverix.config.JwtUtil
 import com.reverix.reverix.dto.AuthResponse
 import com.reverix.reverix.dto.LoginRequest
 import com.reverix.reverix.dto.RegisterRequest
-import com.reverix.reverix.entities.User
-import com.reverix.reverix.repos.UserRepository
+import com.reverix.reverix.entity.User
+import com.reverix.reverix.repository.UserRepository
 import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.stereotype.Service
 

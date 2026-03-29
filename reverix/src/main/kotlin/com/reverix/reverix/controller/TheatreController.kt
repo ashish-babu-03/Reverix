@@ -1,7 +1,7 @@
 package com.reverix.reverix.controller
 
-import com.reverix.reverix.entities.Theatre
-import com.reverix.reverix.entities.VibeType
+import com.reverix.reverix.entity.Theatre
+import com.reverix.reverix.entity.VibeType
 import com.reverix.reverix.service.TheatreService
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*

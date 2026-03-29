@@ -1,7 +1,7 @@
 package com.reverix.reverix.service
 
-import com.reverix.reverix.entities.Movie
-import com.reverix.reverix.repos.MovieRepository
+import com.reverix.reverix.entity.Movie
+import com.reverix.reverix.repository.MovieRepository
 import org.springframework.stereotype.Service
 
 @Service

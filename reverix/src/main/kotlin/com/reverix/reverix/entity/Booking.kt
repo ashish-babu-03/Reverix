@@ -1,4 +1,4 @@
-package com.reverix.reverix.entities
+package com.reverix.reverix.entity
 
 import jakarta.persistence.*
 import java.math.BigDecimal

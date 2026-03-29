@@ -1,6 +1,6 @@
-package com.reverix.reverix.repos
+package com.reverix.reverix.repository
 
-import com.reverix.reverix.entities.User
+import com.reverix.reverix.entity.User
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.stereotype.Repository
 import java.util.Optional

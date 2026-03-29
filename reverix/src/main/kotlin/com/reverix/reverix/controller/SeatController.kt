@@ -1,7 +1,6 @@
 package com.reverix.reverix.controller
 
-import com.reverix.reverix.entities.SeatStatus
-import com.reverix.reverix.repos.SeatRepository
+import com.reverix.reverix.repository.SeatRepository
 import org.springframework.web.bind.annotation.*
 
 @RestController

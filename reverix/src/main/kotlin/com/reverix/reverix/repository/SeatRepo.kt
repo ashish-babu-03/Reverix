@@ -1,8 +1,8 @@
-package com.reverix.reverix.repos
+package com.reverix.reverix.repository
 
-import com.reverix.reverix.entities.Seat
-import com.reverix.reverix.entities.SeatStatus
-import com.reverix.reverix.entities.SeatZone
+import com.reverix.reverix.entity.Seat
+import com.reverix.reverix.entity.SeatStatus
+import com.reverix.reverix.entity.SeatZone
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.stereotype.Repository
 

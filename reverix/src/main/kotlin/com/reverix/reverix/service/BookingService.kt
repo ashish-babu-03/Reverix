@@ -4,8 +4,8 @@ import com.reverix.reverix.dto.BookingConfirmationResponse
 import com.reverix.reverix.dto.LockSeatsResponse
 import com.reverix.reverix.dto.SeatInfo
 import com.reverix.reverix.dto.SeatRecommendationResponse
-import com.reverix.reverix.entities.*
-import com.reverix.reverix.repos.*
+import com.reverix.reverix.entity.*
+import com.reverix.reverix.repository.*
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 import java.math.BigDecimal

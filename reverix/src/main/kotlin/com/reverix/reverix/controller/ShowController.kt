@@ -1,6 +1,6 @@
 package com.reverix.reverix.controller
 
-import com.reverix.reverix.repos.ShowRepository
+import com.reverix.reverix.repository.ShowRepository
 import org.springframework.web.bind.annotation.*
 import java.time.LocalDateTime
 

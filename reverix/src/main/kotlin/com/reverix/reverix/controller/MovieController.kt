@@ -1,6 +1,6 @@
 package com.reverix.reverix.controller
 
-import com.reverix.reverix.entities.Movie
+import com.reverix.reverix.entity.Movie
 import com.reverix.reverix.service.MovieService
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*

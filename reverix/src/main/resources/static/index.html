@@ -40,7 +40,6 @@
             overflow-x: hidden;
         }
 
-        /* Noise texture overlay */
         body::before {
             content: '';
             position: fixed;
@@ -59,7 +58,6 @@
             padding: 0 24px 100px;
         }
 
-        /* ── NAV ── */
         nav {
             display: flex;
             align-items: center;
@@ -68,13 +66,7 @@
             margin-bottom: 48px;
         }
 
-        .logo {
-            font-family: var(--font-display);
-            font-size: 24px;
-            font-weight: 800;
-            letter-spacing: -1px;
-            color: var(--text);
-        }
+        .logo { font-family: var(--font-display); font-size: 24px; font-weight: 800; letter-spacing: -1px; color: var(--text); }
         .logo em { color: var(--gold); font-style: normal; }
 
         .nav-center {
@@ -130,11 +122,7 @@
         .btn-gold:hover { opacity: 0.88; transform: translateY(-1px); }
         .btn-gold:active { transform: scale(0.97); }
 
-        .nav-user {
-            display: none;
-            align-items: center;
-            gap: 12px;
-        }
+        .nav-user { display: none; align-items: center; gap: 12px; }
         .nav-user-email {
             font-size: 12px;
             color: var(--text2);
@@ -144,12 +132,10 @@
             border-radius: 100px;
         }
 
-        /* ── PAGES ── */
         .page { display: none; animation: fadeIn 0.3s ease; }
         .page.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* ── HERO ── */
         .hero {
             position: relative;
             background: var(--card);
@@ -193,14 +179,7 @@
             max-width: 560px;
         }
         .hero-title span { color: var(--gold); }
-        .hero-sub {
-            color: var(--text2);
-            font-size: 16px;
-            line-height: 1.7;
-            max-width: 480px;
-            margin-bottom: 36px;
-            font-weight: 300;
-        }
+        .hero-sub { color: var(--text2); font-size: 16px; line-height: 1.7; max-width: 480px; margin-bottom: 36px; font-weight: 300; }
         .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
         .btn-hero-primary {
             font-family: var(--font-body);
@@ -229,39 +208,17 @@
         }
         .btn-hero-secondary:hover { background: var(--bg3); border-color: var(--border-gold); }
 
-        .hero-stats {
-            position: absolute;
-            bottom: 40px; right: 52px;
-            display: flex;
-            gap: 32px;
-        }
-        .hero-stat-num {
-            font-family: var(--font-display);
-            font-size: 28px;
-            font-weight: 700;
-            color: var(--gold);
-            line-height: 1;
-        }
+        .hero-stats { position: absolute; bottom: 40px; right: 52px; display: flex; gap: 32px; }
+        .hero-stat-num { font-family: var(--font-display); font-size: 28px; font-weight: 700; color: var(--gold); line-height: 1; }
         .hero-stat-label { font-size: 11px; color: var(--text3); margin-top: 4px; letter-spacing: 0.5px; }
 
-        /* ── SECTION HEADERS ── */
         .sec-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 24px; }
         .sec-eyebrow { font-size: 10px; color: var(--gold); letter-spacing: 2.5px; text-transform: uppercase; font-weight: 600; margin-bottom: 6px; }
-        .sec-title {
-            font-family: var(--font-display);
-            font-size: 22px;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-        }
+        .sec-title { font-family: var(--font-display); font-size: 22px; font-weight: 700; letter-spacing: -0.5px; }
         .sec-link { font-size: 12px; color: var(--text2); cursor: pointer; border-bottom: 1px solid var(--border-md); padding-bottom: 1px; transition: color 0.2s; }
         .sec-link:hover { color: var(--gold); border-color: var(--border-gold); }
 
-        /* ── MOVIE GRID ── */
-        .movies-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(168px, 1fr));
-            gap: 18px;
-        }
+        .movies-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(168px, 1fr)); gap: 18px; }
 
         .movie-card {
             background: var(--card);
@@ -272,447 +229,131 @@
             transition: transform 0.25s cubic-bezier(.34,1.56,.64,1), border-color 0.2s, box-shadow 0.25s;
             position: relative;
         }
-        .movie-card:hover {
-            transform: translateY(-6px);
-            border-color: var(--border-gold);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-        }
-        .movie-card-poster {
-            width: 100%;
-            aspect-ratio: 2/3;
-            object-fit: cover;
-            display: block;
-            background: var(--bg3);
-        }
-        .movie-card-placeholder {
-            width: 100%;
-            aspect-ratio: 2/3;
-            background: var(--bg3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 48px;
-        }
+        .movie-card:hover { transform: translateY(-6px); border-color: var(--border-gold); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+        .movie-card-poster { width: 100%; aspect-ratio: 2/3; object-fit: cover; display: block; background: var(--bg3); }
+        .movie-card-placeholder { width: 100%; aspect-ratio: 2/3; background: var(--bg3); display: flex; align-items: center; justify-content: center; font-size: 48px; }
         .movie-card-body { padding: 14px; }
-        .movie-card-title {
-            font-family: var(--font-display);
-            font-size: 13px;
-            font-weight: 700;
-            line-height: 1.35;
-            margin-bottom: 8px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
+        .movie-card-title { font-family: var(--font-display); font-size: 13px; font-weight: 700; line-height: 1.35; margin-bottom: 8px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
         .movie-card-meta { display: flex; align-items: center; justify-content: space-between; }
         .movie-card-rating { font-size: 12px; color: var(--gold); font-weight: 600; }
         .movie-card-genre { font-size: 11px; color: var(--text3); }
         .movie-card-overlay {
-            position: absolute;
-            inset: 0;
+            position: absolute; inset: 0;
             background: linear-gradient(to top, rgba(8,8,16,0.95) 0%, transparent 50%);
-            opacity: 0;
-            transition: opacity 0.25s;
-            display: flex;
-            align-items: flex-end;
-            padding: 16px;
+            opacity: 0; transition: opacity 0.25s;
+            display: flex; align-items: flex-end; padding: 16px;
         }
         .movie-card:hover .movie-card-overlay { opacity: 1; }
-        .movie-card-overlay-btn {
-            width: 100%;
-            background: var(--gold);
-            color: #000;
-            border: none;
-            padding: 10px;
-            border-radius: 10px;
-            font-size: 12px;
-            font-weight: 700;
-            cursor: pointer;
-            font-family: var(--font-body);
-        }
+        .movie-card-overlay-btn { width: 100%; background: var(--gold); color: #000; border: none; padding: 10px; border-radius: 10px; font-size: 12px; font-weight: 700; cursor: pointer; font-family: var(--font-body); }
 
-        /* ── TABS ── */
-        .tabs {
-            display: flex;
-            gap: 4px;
-            background: var(--bg3);
-            border: 1px solid var(--border);
-            border-radius: 100px;
-            padding: 4px;
-            width: fit-content;
-            margin-bottom: 28px;
-        }
-        .tab {
-            font-family: var(--font-body);
-            font-size: 13px;
-            font-weight: 500;
-            color: var(--text2);
-            padding: 8px 20px;
-            border-radius: 100px;
-            cursor: pointer;
-            border: none;
-            background: none;
-            transition: all 0.2s;
-        }
+        .tabs { display: flex; gap: 4px; background: var(--bg3); border: 1px solid var(--border); border-radius: 100px; padding: 4px; width: fit-content; margin-bottom: 28px; }
+        .tab { font-family: var(--font-body); font-size: 13px; font-weight: 500; color: var(--text2); padding: 8px 20px; border-radius: 100px; cursor: pointer; border: none; background: none; transition: all 0.2s; }
         .tab.active { background: var(--bg4); color: var(--text); }
 
-        /* ── LOADING / STATES ── */
-        .loading {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 80px 20px;
-            gap: 16px;
-            color: var(--text3);
-            font-size: 13px;
-        }
-        .spinner {
-            width: 28px; height: 28px;
-            border: 2px solid var(--border-md);
-            border-top-color: var(--gold);
-            border-radius: 50%;
-            animation: spin 0.75s linear infinite;
-        }
+        .loading { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 80px 20px; gap: 16px; color: var(--text3); font-size: 13px; }
+        .spinner { width: 28px; height: 28px; border: 2px solid var(--border-md); border-top-color: var(--gold); border-radius: 50%; animation: spin 0.75s linear infinite; }
         @keyframes spin { to { transform: rotate(360deg); } }
 
-        .empty-state {
-            text-align: center;
-            padding: 80px 20px;
-            color: var(--text3);
-        }
+        .empty-state { text-align: center; padding: 80px 20px; color: var(--text3); }
         .empty-icon { font-size: 52px; margin-bottom: 16px; }
         .empty-title { font-family: var(--font-display); font-size: 18px; color: var(--text2); margin-bottom: 6px; }
 
-        .msg-error {
-            background: rgba(255,77,109,0.08);
-            border: 1px solid rgba(255,77,109,0.2);
-            color: var(--red);
-            padding: 14px 18px;
-            border-radius: 12px;
-            font-size: 13px;
-            margin-bottom: 16px;
-            line-height: 1.5;
-        }
-        .msg-success {
-            background: rgba(54,211,153,0.08);
-            border: 1px solid rgba(54,211,153,0.2);
-            color: var(--green);
-            padding: 14px 18px;
-            border-radius: 12px;
-            font-size: 13px;
-            margin-bottom: 16px;
-        }
+        .msg-error { background: rgba(255,77,109,0.08); border: 1px solid rgba(255,77,109,0.2); color: var(--red); padding: 14px 18px; border-radius: 12px; font-size: 13px; margin-bottom: 16px; line-height: 1.5; }
+        .msg-success { background: rgba(54,211,153,0.08); border: 1px solid rgba(54,211,153,0.2); color: var(--green); padding: 14px 18px; border-radius: 12px; font-size: 13px; margin-bottom: 16px; }
 
-        /* ── MODALS ── */
-        .overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(4,4,10,0.88);
-            backdrop-filter: blur(6px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 200;
-            padding: 16px;
-        }
-        .modal {
-            background: var(--bg2);
-            border: 1px solid var(--border-md);
-            border-radius: 24px;
-            width: 100%;
-            max-width: 640px;
-            max-height: 92vh;
-            overflow-y: auto;
-            scrollbar-width: thin;
-            scrollbar-color: var(--bg4) transparent;
-        }
-        .modal-head {
-            display: flex;
-            align-items: flex-start;
-            justify-content: space-between;
-            padding: 28px 28px 0;
-            position: sticky;
-            top: 0;
-            background: var(--bg2);
-            z-index: 1;
-            padding-bottom: 16px;
-            border-bottom: 1px solid var(--border);
-            margin-bottom: 0;
-        }
-        .modal-title {
-            font-family: var(--font-display);
-            font-size: 20px;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-        }
-        .modal-close {
-            width: 32px; height: 32px;
-            background: var(--bg3);
-            border: 1px solid var(--border);
-            color: var(--text2);
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 14px;
-            display: flex; align-items: center; justify-content: center;
-            flex-shrink: 0;
-            transition: all 0.2s;
-        }
+        .overlay { position: fixed; inset: 0; background: rgba(4,4,10,0.88); backdrop-filter: blur(6px); display: flex; align-items: center; justify-content: center; z-index: 200; padding: 16px; }
+        .modal { background: var(--bg2); border: 1px solid var(--border-md); border-radius: 24px; width: 100%; max-width: 640px; max-height: 92vh; overflow-y: auto; scrollbar-width: thin; scrollbar-color: var(--bg4) transparent; }
+        .modal-head { display: flex; align-items: flex-start; justify-content: space-between; padding: 28px 28px 16px; position: sticky; top: 0; background: var(--bg2); z-index: 1; border-bottom: 1px solid var(--border); }
+        .modal-title { font-family: var(--font-display); font-size: 20px; font-weight: 700; letter-spacing: -0.5px; }
+        .modal-close { width: 32px; height: 32px; background: var(--bg3); border: 1px solid var(--border); color: var(--text2); border-radius: 50%; cursor: pointer; font-size: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all 0.2s; }
         .modal-close:hover { background: var(--bg4); color: var(--text); }
         .modal-body { padding: 24px 28px 28px; }
 
-        /* ── MOVIE DETAIL ── */
-        .movie-detail {
-            display: grid;
-            grid-template-columns: 190px 1fr;
-            gap: 28px;
-            margin-bottom: 28px;
-        }
-        .movie-detail-poster {
-            width: 100%;
-            border-radius: 16px;
-            aspect-ratio: 2/3;
-            object-fit: cover;
-            background: var(--bg3);
-            display: block;
-        }
-        .movie-detail-title {
-            font-family: var(--font-display);
-            font-size: 22px;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-            margin-bottom: 12px;
-            line-height: 1.15;
-        }
+        .movie-detail { display: grid; grid-template-columns: 190px 1fr; gap: 28px; margin-bottom: 28px; }
+        .movie-detail-poster { width: 100%; border-radius: 16px; aspect-ratio: 2/3; object-fit: cover; background: var(--bg3); display: block; }
+        .movie-detail-title { font-family: var(--font-display); font-size: 22px; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 12px; line-height: 1.15; }
         .badges { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 14px; }
-        .badge {
-            font-size: 11px;
-            font-weight: 600;
-            padding: 4px 11px;
-            border-radius: 100px;
-            border: 1px solid;
-        }
+        .badge { font-size: 11px; font-weight: 600; padding: 4px 11px; border-radius: 100px; border: 1px solid; }
         .badge-gold { background: var(--gold-glow); color: var(--gold); border-color: var(--border-gold); }
         .badge-gray { background: var(--bg3); color: var(--text2); border-color: var(--border); }
         .badge-purple { background: rgba(167,139,250,0.1); color: var(--purple); border-color: rgba(167,139,250,0.25); }
-        .movie-desc {
-            font-size: 13px;
-            color: var(--text2);
-            line-height: 1.75;
-            margin-bottom: 20px;
-            font-weight: 300;
-        }
+        .movie-desc { font-size: 13px; color: var(--text2); line-height: 1.75; margin-bottom: 20px; font-weight: 300; }
         .mood-row { font-size: 12px; color: var(--text3); margin-bottom: 20px; }
         .mood-row span { color: var(--gold); font-weight: 500; }
 
-        /* ── SHOWS ── */
         .shows-section { border-top: 1px solid var(--border); padding-top: 20px; }
         .shows-heading { font-family: var(--font-display); font-size: 15px; font-weight: 700; margin-bottom: 14px; }
         .shows-list { display: flex; flex-direction: column; gap: 8px; }
-        .show-row {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: var(--bg3);
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            padding: 16px 18px;
-            cursor: pointer;
-            transition: border-color 0.2s, background 0.2s;
-        }
+        .show-row { display: flex; align-items: center; justify-content: space-between; background: var(--bg3); border: 1px solid var(--border); border-radius: 14px; padding: 16px 18px; cursor: pointer; transition: border-color 0.2s, background 0.2s; }
         .show-row:hover { border-color: var(--border-gold); background: var(--bg4); }
         .show-time { font-family: var(--font-display); font-size: 16px; font-weight: 700; }
         .show-venue { font-size: 12px; color: var(--text2); margin-top: 3px; }
         .show-right { text-align: right; }
         .show-price { font-family: var(--font-display); font-size: 16px; font-weight: 700; color: var(--gold); }
         .show-avail { font-size: 11px; color: var(--text3); margin-top: 3px; }
-        .show-vibe {
-            font-size: 10px;
-            font-weight: 600;
-            letter-spacing: 1px;
-            color: var(--purple);
-            background: rgba(167,139,250,0.08);
-            border: 1px solid rgba(167,139,250,0.15);
-            padding: 3px 8px;
-            border-radius: 100px;
-            margin-top: 4px;
-            display: inline-block;
-        }
+        .show-vibe { font-size: 10px; font-weight: 600; letter-spacing: 1px; color: var(--purple); background: rgba(167,139,250,0.08); border: 1px solid rgba(167,139,250,0.15); padding: 3px 8px; border-radius: 100px; margin-top: 4px; display: inline-block; }
 
-        /* ── SEAT PICKER ── */
-        .screen-glow {
-            height: 3px;
-            background: linear-gradient(90deg, transparent 0%, var(--gold) 30%, var(--gold) 70%, transparent 100%);
-            border-radius: 2px;
-            margin-bottom: 6px;
-            opacity: 0.6;
-        }
-        .screen-text {
-            text-align: center;
-            font-size: 10px;
-            color: var(--text3);
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            margin-bottom: 24px;
-        }
-        .seat-section-label {
-            text-align: center;
-            font-size: 10px;
-            font-weight: 600;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            margin: 12px 0 8px;
-            padding: 4px 14px;
-            border-radius: 100px;
-            display: inline-block;
-            width: 100%;
-        }
+        .screen-glow { height: 3px; background: linear-gradient(90deg, transparent 0%, var(--gold) 30%, var(--gold) 70%, transparent 100%); border-radius: 2px; margin-bottom: 6px; opacity: 0.6; }
+        .screen-text { text-align: center; font-size: 10px; color: var(--text3); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 24px; }
         .seat-grid-wrap { display: flex; flex-direction: column; align-items: center; gap: 5px; }
         .seat-row-wrap { display: flex; gap: 4px; align-items: center; }
         .seat-row-label { font-size: 9px; color: var(--text3); width: 14px; text-align: center; flex-shrink: 0; }
-        .seat {
-            width: 26px; height: 22px;
-            border-radius: 5px 5px 3px 3px;
-            border: none;
-            cursor: pointer;
-            transition: all 0.15s;
-            font-size: 0;
-        }
+        .seat { width: 26px; height: 22px; border-radius: 5px 5px 3px 3px; border: none; cursor: pointer; transition: all 0.15s; font-size: 0; }
         .seat.avail { background: var(--bg4); border: 1px solid var(--border-md); }
         .seat.avail:hover { background: var(--gold-glow); border-color: var(--gold); transform: scale(1.1); }
         .seat.selected { background: var(--gold); border: 1px solid var(--gold); }
         .seat.booked { background: var(--bg3); border: 1px solid var(--border); cursor: not-allowed; opacity: 0.4; }
         .seat-gap { width: 14px; }
-
         .seat-legend { display: flex; gap: 18px; justify-content: center; margin: 18px 0 0; flex-wrap: wrap; }
         .legend-item { display: flex; align-items: center; gap: 7px; font-size: 11px; color: var(--text2); }
         .legend-dot { width: 14px; height: 12px; border-radius: 3px; }
 
-        .booking-summary {
-            background: var(--bg3);
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            padding: 18px;
-            margin-top: 20px;
-        }
+        .booking-summary { background: var(--bg3); border: 1px solid var(--border); border-radius: 14px; padding: 18px; margin-top: 20px; }
         .summary-row { display: flex; justify-content: space-between; font-size: 13px; color: var(--text2); margin-bottom: 10px; }
-        .summary-row:last-child { margin-bottom: 0; }
-        .summary-total {
-            display: flex;
-            justify-content: space-between;
-            font-family: var(--font-display);
-            font-size: 18px;
-            font-weight: 700;
-            border-top: 1px solid var(--border);
-            padding-top: 14px;
-            margin-top: 4px;
-        }
+        .summary-total { display: flex; justify-content: space-between; font-family: var(--font-display); font-size: 18px; font-weight: 700; border-top: 1px solid var(--border); padding-top: 14px; margin-top: 4px; }
         .summary-total span:last-child { color: var(--gold); }
 
-        /* ── AUTH ── */
-        .auth-wrap {
-            max-width: 420px;
-            margin: 48px auto;
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 24px;
-            padding: 40px;
-        }
+        .auth-wrap { max-width: 420px; margin: 48px auto; background: var(--card); border: 1px solid var(--border); border-radius: 24px; padding: 40px; }
         .auth-title { font-family: var(--font-display); font-size: 26px; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 6px; }
         .auth-sub { font-size: 14px; color: var(--text2); margin-bottom: 32px; font-weight: 300; }
         .form-group { margin-bottom: 16px; }
         .form-label { display: block; font-size: 11px; font-weight: 600; color: var(--text2); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px; }
-        .form-input {
-            width: 100%;
-            background: var(--bg3);
-            border: 1px solid var(--border);
-            color: var(--text);
-            padding: 13px 16px;
-            border-radius: 12px;
-            font-size: 14px;
-            font-family: var(--font-body);
-            outline: none;
-            transition: border-color 0.2s;
-        }
+        .form-input { width: 100%; background: var(--bg3); border: 1px solid var(--border); color: var(--text); padding: 13px 16px; border-radius: 12px; font-size: 14px; font-family: var(--font-body); outline: none; transition: border-color 0.2s; }
         .form-input:focus { border-color: var(--border-gold); }
         .form-input::placeholder { color: var(--text3); }
         select.form-input { cursor: pointer; }
-        .btn-full {
-            width: 100%;
-            background: var(--gold);
-            color: #000;
-            border: none;
-            padding: 14px;
-            border-radius: 12px;
-            font-size: 15px;
-            font-weight: 700;
-            font-family: var(--font-body);
-            cursor: pointer;
-            transition: opacity 0.2s;
-            margin-top: 8px;
-        }
+        .btn-full { width: 100%; background: var(--gold); color: #000; border: none; padding: 14px; border-radius: 12px; font-size: 15px; font-weight: 700; font-family: var(--font-body); cursor: pointer; transition: opacity 0.2s; margin-top: 8px; }
         .btn-full:hover { opacity: 0.87; }
         .auth-switch { text-align: center; margin-top: 20px; font-size: 13px; color: var(--text2); }
         .auth-switch-link { color: var(--gold); cursor: pointer; font-weight: 600; }
 
-        /* ── BOOKINGS ── */
         .bookings-grid { display: flex; flex-direction: column; gap: 12px; }
-        .booking-card {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 18px;
-            padding: 22px 24px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 16px;
-            transition: border-color 0.2s;
-        }
+        .booking-card { background: var(--card); border: 1px solid var(--border); border-radius: 18px; padding: 22px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; transition: border-color 0.2s; }
         .booking-card:hover { border-color: var(--border-md); }
         .booking-id { font-size: 11px; color: var(--text3); margin-bottom: 6px; letter-spacing: 1px; }
         .booking-movie { font-family: var(--font-display); font-size: 17px; font-weight: 700; margin-bottom: 4px; }
         .booking-meta { font-size: 12px; color: var(--text2); }
         .booking-amount { font-family: var(--font-display); font-size: 20px; font-weight: 700; color: var(--gold); text-align: right; }
         .booking-amount-label { font-size: 11px; color: var(--text3); margin-bottom: 4px; }
-        .status-pill {
-            display: inline-block;
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            padding: 5px 12px;
-            border-radius: 100px;
-        }
+        .status-pill { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 5px 12px; border-radius: 100px; }
         .status-confirmed { background: rgba(54,211,153,0.1); color: var(--green); }
         .status-cancelled { background: rgba(255,77,109,0.1); color: var(--red); }
         .status-pending { background: rgba(232,197,71,0.1); color: var(--gold); }
 
-        /* ── RECOMMEND PAGE ── */
         .rec-wrap { max-width: 560px; }
-        .rec-result {
-            background: var(--card);
-            border: 1px solid var(--border-gold);
-            border-radius: 20px;
-            padding: 28px;
-            margin-top: 28px;
-        }
+        .rec-result { background: var(--card); border: 1px solid var(--border-gold); border-radius: 20px; padding: 28px; margin-top: 28px; }
         .rec-eyebrow { font-size: 10px; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; font-weight: 600; margin-bottom: 16px; }
-        .rec-movie-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 12px 0;
-            border-bottom: 1px solid var(--border);
-            font-size: 14px;
-        }
+        .rec-movie-item { display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--border); font-size: 14px; cursor: pointer; transition: background 0.15s; }
         .rec-movie-item:last-child { border-bottom: none; }
+        .rec-movie-item:hover { background: var(--bg3); margin: 0 -8px; padding: 12px 8px; border-radius: 10px; }
         .rec-movie-rank { font-family: var(--font-display); font-size: 18px; font-weight: 800; color: var(--gold); width: 28px; flex-shrink: 0; }
         .rec-theatre-item { padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
         .rec-theatre-item:last-child { border-bottom: none; }
         .rec-theatre-name { font-weight: 600; margin-bottom: 2px; }
         .rec-theatre-meta { color: var(--text2); font-size: 12px; }
 
-        /* ── RESPONSIVE ── */
+        .rec-poster { width: 36px; height: 52px; border-radius: 6px; object-fit: cover; background: var(--bg3); flex-shrink: 0; }
+
         @media (max-width: 640px) {
             nav { flex-wrap: wrap; gap: 14px; }
             .nav-center { order: 3; width: 100%; justify-content: center; }
@@ -729,7 +370,6 @@
 <body>
 <div class="app">
 
-    <!-- NAV -->
     <nav>
         <div class="logo">Reve<em>rix</em></div>
         <div class="nav-center">
@@ -750,7 +390,7 @@
         </div>
     </nav>
 
-    <!-- HOME PAGE -->
+    <!-- HOME -->
     <div id="page-home" class="page active">
         <div class="hero">
             <div class="hero-eyebrow">AI-Powered Cinema</div>
@@ -776,7 +416,7 @@
         <div id="home-grid"><div class="loading"><div class="spinner"></div><span>Loading movies...</span></div></div>
     </div>
 
-    <!-- MOVIES PAGE -->
+    <!-- MOVIES -->
     <div id="page-movies" class="page">
         <div class="sec-header">
             <div>
@@ -791,26 +431,20 @@
         <div id="movies-grid"><div class="loading"><div class="spinner"></div></div></div>
     </div>
 
-    <!-- LOGIN PAGE -->
+    <!-- LOGIN -->
     <div id="page-login" class="page">
         <div class="auth-wrap">
             <div id="auth-err"></div>
             <div class="auth-title">Welcome back</div>
             <div class="auth-sub">Sign in to book your next experience</div>
-            <div class="form-group">
-                <label class="form-label">Email</label>
-                <input class="form-input" type="email" id="l-email" placeholder="you@email.com">
-            </div>
-            <div class="form-group">
-                <label class="form-label">Password</label>
-                <input class="form-input" type="password" id="l-pass" placeholder="••••••••" onkeydown="if(event.key==='Enter')doLogin()">
-            </div>
+            <div class="form-group"><label class="form-label">Email</label><input class="form-input" type="email" id="l-email" placeholder="you@email.com"></div>
+            <div class="form-group"><label class="form-label">Password</label><input class="form-input" type="password" id="l-pass" placeholder="••••••••" onkeydown="if(event.key==='Enter')doLogin()"></div>
             <button class="btn-full" onclick="doLogin()">Sign In</button>
             <div class="auth-switch">No account? <span class="auth-switch-link" onclick="showPage('register')">Register free</span></div>
         </div>
     </div>
 
-    <!-- REGISTER PAGE -->
+    <!-- REGISTER -->
     <div id="page-register" class="page">
         <div class="auth-wrap">
             <div id="reg-err"></div>
@@ -825,7 +459,7 @@
         </div>
     </div>
 
-    <!-- BOOKINGS PAGE -->
+    <!-- BOOKINGS -->
     <div id="page-bookings" class="page">
         <div class="sec-header">
             <div>
@@ -836,7 +470,7 @@
         <div id="bookings-list"><div class="loading"><div class="spinner"></div></div></div>
     </div>
 
-    <!-- RECOMMEND PAGE -->
+    <!-- RECOMMEND -->
     <div id="page-recommend" class="page">
         <div class="sec-header">
             <div>
@@ -846,7 +480,8 @@
         </div>
         <div class="rec-wrap">
             <div class="form-group"><label class="form-label">How are you feeling?</label><input class="form-input" id="rec-mood" placeholder="e.g. adventurous, relaxed, romantic..."></div>
-            <div class="form-group"><label class="form-label">Who's coming?</label>
+            <div class="form-group">
+                <label class="form-label">Who's coming?</label>
                 <select class="form-input" id="rec-group">
                     <option value="solo">Just me (Solo)</option>
                     <option value="couple">Date night (Couple)</option>
@@ -854,6 +489,7 @@
                     <option value="family">Family outing</option>
                 </select>
             </div>
+            <div class="form-group"><label class="form-label">Group size</label><input class="form-input" type="number" id="rec-size" value="2" min="1" max="20"></div>
             <div class="form-group"><label class="form-label">City</label><input class="form-input" id="rec-city" value="Chennai"></div>
             <button class="btn-full" style="margin-top:4px;" onclick="doRecommend()">Get My Picks →</button>
             <div id="rec-output"></div>
@@ -862,7 +498,7 @@
 
 </div>
 
-<!-- MOVIE DETAIL MODAL -->
+<!-- MOVIE MODAL -->
 <div id="movie-modal" class="overlay" style="display:none;" onclick="if(event.target===this)closeModal('movie-modal')">
     <div class="modal">
         <div class="modal-head">
@@ -873,7 +509,7 @@
     </div>
 </div>
 
-<!-- SEAT PICKER MODAL -->
+<!-- SEAT MODAL -->
 <div id="seat-modal" class="overlay" style="display:none;" onclick="if(event.target===this)closeModal('seat-modal')">
     <div class="modal" style="max-width:580px;">
         <div class="modal-head">
@@ -888,14 +524,13 @@
 </div>
 
 <script>
-    const API = 'http://localhost:8080';
+    const API = 'https://your-railway-url.up.railway.app';
     let jwt = localStorage.getItem('rvx_token');
     let userEmail = localStorage.getItem('rvx_email');
     let selectedSeats = [];
     let currentShow = null;
     let currentPrice = 200;
 
-    /* ── UTILS ── */
     function apiFetch(path, opts = {}) {
         const h = { 'Content-Type': 'application/json' };
         if (jwt) h['Authorization'] = 'Bearer ' + jwt;
@@ -910,7 +545,6 @@
 
     function closeModal(id) { document.getElementById(id).style.display = 'none'; }
 
-    /* ── NAV / AUTH ── */
     function updateNav() {
         const loggedIn = !!jwt;
         document.getElementById('nav-auth').style.display = loggedIn ? 'none' : 'flex';
@@ -950,11 +584,7 @@
         document.getElementById('auth-err').innerHTML = '';
         if (!email || !password) { document.getElementById('auth-err').innerHTML = '<div class="msg-error">Please fill in all fields.</div>'; return; }
         try {
-            const res = await fetch(API + '/api/auth/login', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email, password })
-            });
+            const res = await fetch(API + '/api/auth/login', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email, password }) });
             const data = await res.json();
             if (!res.ok) throw new Error(data.message || 'Login failed');
             jwt = data.token; userEmail = email;
@@ -962,9 +592,7 @@
             localStorage.setItem('rvx_email', email);
             updateNav();
             showPage('home');
-        } catch(e) {
-            document.getElementById('auth-err').innerHTML = `<div class="msg-error">${e.message}</div>`;
-        }
+        } catch(e) { document.getElementById('auth-err').innerHTML = `<div class="msg-error">${e.message}</div>`; }
     }
 
     async function doRegister() {
@@ -975,11 +603,7 @@
         document.getElementById('reg-err').innerHTML = '';
         if (!name || !email || !password) { document.getElementById('reg-err').innerHTML = '<div class="msg-error">Please fill in all fields.</div>'; return; }
         try {
-            const res = await fetch(API + '/api/auth/register', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ name, email, phone, password })
-            });
+            const res = await fetch(API + '/api/auth/register', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ name, email, phone, password }) });
             const data = await res.json();
             if (!res.ok) throw new Error(data.message || 'Registration failed');
             jwt = data.token; userEmail = email;
@@ -987,33 +611,22 @@
             localStorage.setItem('rvx_email', email);
             updateNav();
             showPage('home');
-        } catch(e) {
-            document.getElementById('reg-err').innerHTML = `<div class="msg-error">${e.message}</div>`;
-        }
+        } catch(e) { document.getElementById('reg-err').innerHTML = `<div class="msg-error">${e.message}</div>`; }
     }
 
-    /* ── MOVIES ── */
     function movieCardHTML(m) {
         const rating = m.rating ? m.rating.toFixed(1) : '—';
         const genre = m.genre ? m.genre.split(',')[0].trim() : '';
         const poster = m.posterUrl
-            ? `<img class="movie-card-poster" src="${m.posterUrl}" loading="lazy" onerror="this.parentNode.innerHTML='<div class=movie-card-placeholder>🎬</div>'+this.parentNode.innerHTML.replace(this.outerHTML,'');">`
+            ? `<img class="movie-card-poster" src="${m.posterUrl}" loading="lazy" onerror="this.style.display='none'">`
             : `<div class="movie-card-placeholder">🎬</div>`;
         return `<div class="movie-card" onclick="openMovieModal(${m.id})">
-    <div style="position:relative;">
-      ${poster}
-      <div class="movie-card-overlay">
-        <button class="movie-card-overlay-btn">View Shows</button>
-      </div>
-    </div>
-    <div class="movie-card-body">
-      <div class="movie-card-title" title="${m.title}">${m.title}</div>
-      <div class="movie-card-meta">
-        <span class="movie-card-rating">★ ${rating}</span>
-        <span class="movie-card-genre">${genre}</span>
-      </div>
-    </div>
-  </div>`;
+            <div style="position:relative;">${poster}<div class="movie-card-overlay"><button class="movie-card-overlay-btn">View Shows</button></div></div>
+            <div class="movie-card-body">
+                <div class="movie-card-title" title="${m.title}">${m.title}</div>
+                <div class="movie-card-meta"><span class="movie-card-rating">★ ${rating}</span><span class="movie-card-genre">${genre}</span></div>
+            </div>
+        </div>`;
     }
 
     async function loadHomeMovies() {
@@ -1023,9 +636,9 @@
             const res = await apiFetch('/api/movies/now-playing');
             const raw = await res.json();
             const movies = Array.isArray(raw) ? raw : (raw.results || raw.content || []);
-            el.innerHTML = `<div class="movies-grid">${movies.slice(0, 8).map(movieCardHTML).join('')}</div>`;
+            el.innerHTML = `<div class="movies-grid">${movies.slice(0,8).map(movieCardHTML).join('')}</div>`;
         } catch {
-            el.innerHTML = '<div class="msg-error">Could not connect to backend — make sure Spring Boot is running on port 8080 and CORS is enabled.</div>';
+            el.innerHTML = '<div class="msg-error">Could not connect to backend — make sure Spring Boot is running on port 8080.</div>';
         }
     }
 
@@ -1038,9 +651,7 @@
             const raw = await res.json();
             const movies = Array.isArray(raw) ? raw : (raw.results || raw.content || []);
             el.innerHTML = `<div class="movies-grid">${movies.map(movieCardHTML).join('')}</div>`;
-        } catch {
-            el.innerHTML = '<div class="msg-error">Could not load movies.</div>';
-        }
+        } catch { el.innerHTML = '<div class="msg-error">Could not load movies.</div>'; }
     }
 
     function switchMovieTab(btn, type) {
@@ -1049,7 +660,6 @@
         loadMovies(type);
     }
 
-    /* ── MOVIE MODAL ── */
     async function openMovieModal(id) {
         document.getElementById('movie-modal').style.display = 'flex';
         document.getElementById('mm-body').innerHTML = '<div class="loading"><div class="spinner"></div></div>';
@@ -1060,27 +670,25 @@
             const poster = m.posterUrl
                 ? `<img class="movie-detail-poster" src="${m.posterUrl}" onerror="this.style.background='var(--bg3)'">`
                 : `<div class="movie-detail-poster" style="display:flex;align-items:center;justify-content:center;font-size:64px;">🎬</div>`;
-            const genres = m.genre ? m.genre.split(',').slice(0, 3).map(g => `<span class="badge badge-gray">${g.trim()}</span>`).join('') : '';
+            const genres = m.genre ? m.genre.split(',').slice(0,3).map(g => `<span class="badge badge-gray">${g.trim()}</span>`).join('') : '';
             document.getElementById('mm-body').innerHTML = `
-      <div class="movie-detail">
-        ${poster}
-        <div>
-          <div class="movie-detail-title">${m.title}</div>
-          <div class="badges">
-            ${m.rating ? `<span class="badge badge-gold">★ ${m.rating.toFixed(1)}</span>` : ''}
-            ${m.language ? `<span class="badge badge-purple">${m.language.toUpperCase()}</span>` : ''}
-            ${genres}
-          </div>
-          ${m.releaseDate ? `<div style="font-size:12px;color:var(--text3);margin-bottom:12px;">Released ${m.releaseDate}</div>` : ''}
-          <div class="movie-desc">${m.description || 'No description available.'}</div>
-          ${m.moodTags ? `<div class="mood-row">Vibe: <span>${m.moodTags}</span></div>` : ''}
-          <button class="btn-gold" onclick="loadShows(${m.id})">View Shows & Book →</button>
-        </div>
-      </div>
-      <div id="shows-area"></div>`;
-        } catch {
-            document.getElementById('mm-body').innerHTML = '<div class="msg-error">Failed to load movie details.</div>';
-        }
+                <div class="movie-detail">
+                    ${poster}
+                    <div>
+                        <div class="movie-detail-title">${m.title}</div>
+                        <div class="badges">
+                            ${m.rating ? `<span class="badge badge-gold">★ ${m.rating.toFixed(1)}</span>` : ''}
+                            ${m.language ? `<span class="badge badge-purple">${m.language.toUpperCase()}</span>` : ''}
+                            ${genres}
+                        </div>
+                        ${m.releaseDate ? `<div style="font-size:12px;color:var(--text3);margin-bottom:12px;">Released ${m.releaseDate}</div>` : ''}
+                        <div class="movie-desc">${m.description || 'No description available.'}</div>
+                        ${m.moodTags ? `<div class="mood-row">Vibe: <span>${m.moodTags}</span></div>` : ''}
+                        <button class="btn-gold" onclick="loadShows(${m.id})">View Shows & Book →</button>
+                    </div>
+                </div>
+                <div id="shows-area"></div>`;
+        } catch { document.getElementById('mm-body').innerHTML = '<div class="msg-error">Failed to load movie details.</div>'; }
     }
 
     async function loadShows(movieId) {
@@ -1090,33 +698,27 @@
             const res = await apiFetch('/api/shows?movieId=' + movieId);
             if (!res.ok) throw new Error('Shows endpoint not found');
             const shows = await res.json();
-            if (!shows.length) {
-                el.innerHTML = '<div class="shows-section"><div style="color:var(--text3);font-size:13px;padding:16px 0;">No upcoming shows available.</div></div>';
-                return;
-            }
+            if (!shows.length) { el.innerHTML = '<div class="shows-section"><div style="color:var(--text3);font-size:13px;padding:16px 0;">No upcoming shows available.</div></div>'; return; }
             el.innerHTML = `<div class="shows-section">
-      <div class="shows-heading">Upcoming Shows</div>
-      <div class="shows-list">
-        ${shows.map(s => `
-          <div class="show-row" onclick="openSeatPicker(${s.id}, ${s.price || 200}, '${s.theatre?.name || 'Theatre'}', '${fmt(s.showTime)}')">
-            <div>
-              <div class="show-time">${fmt(s.showTime)}</div>
-              <div class="show-venue">${s.theatre?.name || 'Theatre'} · ${s.theatre?.location || ''}</div>
-              ${s.theatre?.vibeType ? `<div class="show-vibe">${s.theatre.vibeType}</div>` : ''}
-            </div>
-            <div class="show-right">
-              <div class="show-price">₹${s.price || 200}</div>
-              <div class="show-avail">${s.availableSeats} seats left</div>
-            </div>
-          </div>`).join('')}
-      </div>
-    </div>`;
-        } catch(e) {
-            el.innerHTML = `<div class="msg-error" style="margin-top:16px;">Could not load shows: ${e.message}</div>`;
-        }
+                <div class="shows-heading">Upcoming Shows</div>
+                <div class="shows-list">
+                    ${shows.map(s => `
+                        <div class="show-row" onclick="openSeatPicker(${s.id},${s.price||200},'${s.theatre?.name||'Theatre'}','${fmt(s.showTime)}')">
+                            <div>
+                                <div class="show-time">${fmt(s.showTime)}</div>
+                                <div class="show-venue">${s.theatre?.name||'Theatre'} · ${s.theatre?.location||''}</div>
+                                ${s.theatre?.vibeType ? `<div class="show-vibe">${s.theatre.vibeType}</div>` : ''}
+                            </div>
+                            <div class="show-right">
+                                <div class="show-price">₹${s.price||200}</div>
+                                <div class="show-avail">${s.availableSeats} seats left</div>
+                            </div>
+                        </div>`).join('')}
+                </div>
+            </div>`;
+        } catch(e) { el.innerHTML = `<div class="msg-error" style="margin-top:16px;">Could not load shows: ${e.message}</div>`; }
     }
 
-    /* ── SEAT PICKER ── */
     async function openSeatPicker(showId, price, theatre, time) {
         if (!jwt) { closeModal('movie-modal'); showPage('login'); return; }
         currentShow = showId; currentPrice = price; selectedSeats = [];
@@ -1128,121 +730,75 @@
             if (!res.ok) throw new Error('Seats not available');
             const seats = await res.json();
             renderSeats(seats);
-        } catch(e) {
-            document.getElementById('seat-body').innerHTML = `<div class="msg-error">${e.message}</div>`;
-        }
+        } catch(e) { document.getElementById('seat-body').innerHTML = `<div class="msg-error">${e.message}</div>`; }
     }
 
     function renderSeats(seats) {
-        const zoneOrder = ['RECLINER', 'PREMIUM', 'STANDARD'];
-        const zoneColors = { RECLINER: '#E8C547', PREMIUM: '#a78bfa', STANDARD: '#64748b' };
-        const zoneBg = { RECLINER: 'rgba(232,197,71,0.08)', PREMIUM: 'rgba(167,139,250,0.08)', STANDARD: 'rgba(100,116,179,0.06)' };
-
+        const zoneOrder = ['FRONT', 'MIDDLE', 'BACK'];
+        const zoneColors = { FRONT:'#ff6b6b', MIDDLE:'#E8C547', BACK:'#a78bfa' };
+        const zoneBg = { FRONT:'rgba(255,107,107,0.08)', MIDDLE:'rgba(232,197,71,0.08)', BACK:'rgba(167,139,250,0.08)' };
         let html = `<div class="screen-glow"></div><div class="screen-text">Screen</div>`;
-
         for (const zone of zoneOrder) {
             const zSeats = seats.filter(s => s.zone === zone);
             if (!zSeats.length) continue;
-            html += `<div style="text-align:center;margin:10px 0 6px;">
-      <span style="font-size:10px;font-weight:700;letter-spacing:1.5px;color:${zoneColors[zone]};background:${zoneBg[zone]};padding:4px 14px;border-radius:100px;">${zone}</span>
-    </div>
-    <div class="seat-grid-wrap" style="margin-bottom:6px;">`;
+            html += `<div style="text-align:center;margin:10px 0 6px;"><span style="font-size:10px;font-weight:700;letter-spacing:1.5px;color:${zoneColors[zone]};background:${zoneBg[zone]};padding:4px 14px;border-radius:100px;">${zone}</span></div><div class="seat-grid-wrap" style="margin-bottom:6px;">`;
             for (let i = 0; i < zSeats.length; i += 10) {
-                const row = zSeats.slice(i, i + 10);
-                const rowLbl = String.fromCharCode(65 + Math.floor(i / 10));
+                const row = zSeats.slice(i, i+10);
+                const rowLbl = String.fromCharCode(65 + Math.floor(i/10));
                 html += `<div class="seat-row-wrap"><span class="seat-row-label">${rowLbl}</span>`;
-                if (row.length > 5) {
-                    const left = row.slice(0, Math.floor(row.length / 2));
-                    const right = row.slice(Math.floor(row.length / 2));
-                    for (const s of left) {
-                        const cls = s.status === 'BOOKED' || s.status === 'LOCKED' ? 'booked' : selectedSeats.includes(s.id) ? 'selected' : 'avail';
-                        html += `<button class="seat ${cls}" onclick="${cls==='booked'?'':'toggleSeat('+s.id+')'}" title="${s.seatNumber}"></button>`;
-                    }
-                    html += `<div class="seat-gap"></div>`;
-                    for (const s of right) {
-                        const cls = s.status === 'BOOKED' || s.status === 'LOCKED' ? 'booked' : selectedSeats.includes(s.id) ? 'selected' : 'avail';
-                        html += `<button class="seat ${cls}" onclick="${cls==='booked'?'':'toggleSeat('+s.id+')'}" title="${s.seatNumber}"></button>`;
-                    }
-                } else {
-                    for (const s of row) {
-                        const cls = s.status === 'BOOKED' || s.status === 'LOCKED' ? 'booked' : selectedSeats.includes(s.id) ? 'selected' : 'avail';
-                        html += `<button class="seat ${cls}" onclick="${cls==='booked'?'':'toggleSeat('+s.id+')'}" title="${s.seatNumber}"></button>`;
-                    }
-                }
+                const left = row.slice(0, Math.floor(row.length/2));
+                const right = row.slice(Math.floor(row.length/2));
+                for (const s of left) { const cls = s.status==='BOOKED'||s.status==='LOCKED'?'booked':selectedSeats.includes(s.id)?'selected':'avail'; html += `<button class="seat ${cls}" onclick="${cls==='booked'?'':'toggleSeat('+s.id+')'}" title="${s.seatNumber}"></button>`; }
+                if (row.length > 5) html += `<div class="seat-gap"></div>`;
+                for (const s of right) { const cls = s.status==='BOOKED'||s.status==='LOCKED'?'booked':selectedSeats.includes(s.id)?'selected':'avail'; html += `<button class="seat ${cls}" onclick="${cls==='booked'?'':'toggleSeat('+s.id+')'}" title="${s.seatNumber}"></button>`; }
                 html += `</div>`;
             }
             html += `</div>`;
         }
-
         html += `<div class="seat-legend">
-    <div class="legend-item"><div class="legend-dot" style="background:var(--bg4);border:1px solid var(--border-md);"></div>Available</div>
-    <div class="legend-item"><div class="legend-dot" style="background:var(--gold);"></div>Selected</div>
-    <div class="legend-item"><div class="legend-dot" style="background:var(--bg3);opacity:0.5;"></div>Taken</div>
-  </div>
-  <div id="bsummary" style="display:none;" class="booking-summary">
-    <div class="summary-row"><span>Selected seats</span><span id="bs-seats">—</span></div>
-    <div class="summary-row"><span>Price per seat</span><span>₹${currentPrice}</span></div>
-    <div class="summary-total"><span>Total</span><span id="bs-total">₹0</span></div>
-  </div>
-  <div id="seat-err"></div>
-  <button class="btn-full" style="margin-top:20px;" onclick="confirmBooking()">Confirm Booking →</button>`;
-
+            <div class="legend-item"><div class="legend-dot" style="background:var(--bg4);border:1px solid var(--border-md);"></div>Available</div>
+            <div class="legend-item"><div class="legend-dot" style="background:var(--gold);"></div>Selected</div>
+            <div class="legend-item"><div class="legend-dot" style="background:var(--bg3);opacity:0.5;"></div>Taken</div>
+        </div>
+        <div id="bsummary" style="display:none;" class="booking-summary">
+            <div class="summary-row"><span>Selected seats</span><span id="bs-seats">—</span></div>
+            <div class="summary-row"><span>Price per seat</span><span>₹${currentPrice}</span></div>
+            <div class="summary-total"><span>Total</span><span id="bs-total">₹0</span></div>
+        </div>
+        <div id="seat-err"></div>
+        <button class="btn-full" style="margin-top:20px;" onclick="confirmBooking()">Confirm Booking →</button>`;
         document.getElementById('seat-body').innerHTML = html;
     }
 
     function toggleSeat(id) {
         const idx = selectedSeats.indexOf(id);
-        if (idx === -1) selectedSeats.push(id);
-        else selectedSeats.splice(idx, 1);
-
+        if (idx === -1) selectedSeats.push(id); else selectedSeats.splice(idx, 1);
         document.querySelectorAll('#seat-body .seat').forEach(btn => {
-            const title = btn.getAttribute('title');
             if (!btn.classList.contains('booked')) {
-                const sid = parseInt(btn.getAttribute('onclick')?.match(/\d+/) || 0);
-                if (sid === id) {
-                    btn.className = 'seat ' + (selectedSeats.includes(id) ? 'selected' : 'avail');
-                }
+                const match = btn.getAttribute('onclick')?.match(/toggleSeat\((\d+)\)/);
+                if (match && parseInt(match[1]) === id) btn.className = 'seat ' + (selectedSeats.includes(id) ? 'selected' : 'avail');
             }
         });
-
         const summary = document.getElementById('bsummary');
         if (selectedSeats.length > 0) {
             summary.style.display = 'block';
             document.getElementById('bs-seats').textContent = selectedSeats.length + ' seat(s)';
             document.getElementById('bs-total').textContent = '₹' + (selectedSeats.length * currentPrice).toLocaleString('en-IN');
-        } else {
-            summary.style.display = 'none';
-        }
+        } else { summary.style.display = 'none'; }
     }
 
     async function confirmBooking() {
-        if (!selectedSeats.length) {
-            document.getElementById('seat-err').innerHTML = '<div class="msg-error" style="margin-top:14px;">Please select at least one seat.</div>';
-            return;
-        }
+        if (!selectedSeats.length) { document.getElementById('seat-err').innerHTML = '<div class="msg-error" style="margin-top:14px;">Please select at least one seat.</div>'; return; }
         document.getElementById('seat-err').innerHTML = '';
         try {
-            const lockRes = await apiFetch('/api/bookings/lock-seats', {
-                method: 'POST',
-                body: JSON.stringify({ showId: currentShow, seatIds: selectedSeats })
-            });
+            const lockRes = await apiFetch('/api/bookings/lock-seats', { method: 'POST', body: JSON.stringify({ showId: currentShow, seatIds: selectedSeats }) });
             if (!lockRes.ok) { const d = await lockRes.json(); throw new Error(d.message || 'Could not lock seats'); }
-
-            const confRes = await apiFetch('/api/bookings/confirm', {
-                method: 'POST',
-                body: JSON.stringify({ showId: currentShow, seatIds: selectedSeats, isPrimeBooking: false })
-            });
+            const confRes = await apiFetch('/api/bookings/confirm', { method: 'POST', body: JSON.stringify({ showId: currentShow, seatIds: selectedSeats, isPrimeBooking: false }) });
             if (!confRes.ok) { const d = await confRes.json(); throw new Error(d.message || 'Booking failed'); }
-
-            closeModal('seat-modal');
-            closeModal('movie-modal');
-            showPage('bookings');
-        } catch(e) {
-            document.getElementById('seat-err').innerHTML = `<div class="msg-error" style="margin-top:14px;">${e.message}</div>`;
-        }
+            closeModal('seat-modal'); closeModal('movie-modal'); showPage('bookings');
+        } catch(e) { document.getElementById('seat-err').innerHTML = `<div class="msg-error" style="margin-top:14px;">${e.message}</div>`; }
     }
 
-    /* ── BOOKINGS ── */
     async function loadBookings() {
         const el = document.getElementById('bookings-list');
         if (!jwt) { el.innerHTML = '<div class="msg-error">Please sign in to view bookings.</div>'; return; }
@@ -1251,77 +807,123 @@
             const res = await apiFetch('/api/bookings/my-bookings');
             const bookings = await res.json();
             if (!bookings.length) {
-                el.innerHTML = `<div class="empty-state">
-        <div class="empty-icon">🎟️</div>
-        <div class="empty-title">No bookings yet</div>
-        <div style="font-size:13px;">Your confirmed bookings will appear here.</div>
-      </div>`;
+                el.innerHTML = `<div class="empty-state"><div class="empty-icon">🎟️</div><div class="empty-title">No bookings yet</div><div style="font-size:13px;">Your confirmed bookings will appear here.</div></div>`;
                 return;
             }
             el.innerHTML = `<div class="bookings-grid">${bookings.map(b => `
-      <div class="booking-card">
-        <div>
-          <div class="booking-id">BOOKING #${b.id}</div>
-          <div class="booking-movie">${b.showId ? 'Show #' + b.showId : 'Movie Booking'}</div>
-          <div class="booking-meta">${fmt(b.bookedAt)} · ${b.seatIds?.length || 0} seat(s)</div>
-        </div>
-        <div style="text-align:right;">
-          <div class="booking-amount-label">Total paid</div>
-          <div class="booking-amount">₹${b.totalAmount?.toLocaleString('en-IN') || '—'}</div>
-          <span class="status-pill status-${(b.status||'pending').toLowerCase()}">${b.status || 'PENDING'}</span>
-        </div>
-      </div>`).join('')}
-    </div>`;
-        } catch {
-            el.innerHTML = '<div class="msg-error">Could not load bookings.</div>';
-        }
+                <div class="booking-card">
+                    <div>
+                        <div class="booking-id">BOOKING #${b.id}</div>
+                        <div class="booking-movie">${b.showId ? 'Show #' + b.showId : 'Movie Booking'}</div>
+                        <div class="booking-meta">${fmt(b.bookedAt)} · ${b.seatIds?.length||0} seat(s)</div>
+                    </div>
+                    <div style="text-align:right;">
+                        <div class="booking-amount-label">Total paid</div>
+                        <div class="booking-amount">₹${b.totalAmount?.toLocaleString('en-IN')||'—'}</div>
+                        <span class="status-pill status-${(b.status||'pending').toLowerCase()}">${b.status||'PENDING'}</span>
+                    </div>
+                </div>`).join('')}
+            </div>`;
+        } catch { el.innerHTML = '<div class="msg-error">Could not load bookings.</div>'; }
     }
 
-    /* ── RECOMMEND ── */
+    /* ── RECOMMEND — FIXED ── */
     async function doRecommend() {
         const mood = document.getElementById('rec-mood').value.trim();
         const groupType = document.getElementById('rec-group').value;
-        const city = document.getElementById('rec-city').value.trim();
+        const groupSize = parseInt(document.getElementById('rec-size').value) || 2;
+        const city = document.getElementById('rec-city').value.trim() || 'Chennai';
         const el = document.getElementById('rec-output');
-        if (!mood) { el.innerHTML = '<div class="msg-error">Tell us your mood first!</div>'; return; }
+
+        if (!mood) {
+            el.innerHTML = '<div class="msg-error">Tell us your mood first!</div>';
+            return;
+        }
+
         el.innerHTML = '<div class="loading"><div class="spinner"></div><span>AI is thinking...</span></div>';
+
+        // Build request — all fields your backend requires
+        const payload = {
+            mood: mood,
+            groupType: groupType,
+            groupSize: groupSize,
+            city: city,
+            preferredZone: 'MIDDLE'
+        };
+
+        let data = null;
+
         try {
             const res = await apiFetch('/api/recommend', {
                 method: 'POST',
-                body: JSON.stringify({ mood, groupType, city })
+                body: JSON.stringify(payload)
             });
-            if (!res.ok) throw new Error('Recommendation failed');
-            const data = await res.json();
-            const movies = data.movies || data.movieRecommendations || [];
-            const theatres = data.theatres || data.theatreRecommendations || [];
-            el.innerHTML = `<div class="rec-result">
-      <div class="rec-eyebrow">✦ AI Recommendation for "${mood}"</div>
-      ${movies.length ? `
-        <div style="font-size:11px;color:var(--text3);letter-spacing:1px;text-transform:uppercase;margin-bottom:10px;">Movies for you</div>
-        ${movies.slice(0,4).map((m, i) => `
-          <div class="rec-movie-item" onclick="openMovieModal(${m.id||0})" style="cursor:pointer;">
-            <div class="rec-movie-rank">${i+1}</div>
-            <div>
-              <div style="font-weight:600;">${m.title || m}</div>
-              ${m.genre ? `<div style="font-size:12px;color:var(--text2);">${m.genre}</div>` : ''}
-            </div>
-            ${m.rating ? `<div style="margin-left:auto;color:var(--gold);font-size:13px;font-weight:600;">★ ${m.rating?.toFixed ? m.rating.toFixed(1) : m.rating}</div>` : ''}
-          </div>`).join('')}` : ''}
-      ${theatres.length ? `
-        <div style="font-size:11px;color:var(--text3);letter-spacing:1px;text-transform:uppercase;margin:18px 0 10px;">Best theatres</div>
-        ${theatres.slice(0,3).map(t => `
-          <div class="rec-theatre-item">
-            <div class="rec-theatre-name">${t.name || t}</div>
-            <div class="rec-theatre-meta">${t.location || ''} ${t.vibeType ? '· ' + t.vibeType : ''}</div>
-          </div>`).join('')}` : ''}
-      ${data.message ? `<div style="font-size:13px;color:var(--text2);line-height:1.7;margin-top:16px;font-weight:300;">${data.message}</div>` : ''}
-    </div>`;
+
+            // Parse JSON first, THEN check status
+            data = await res.json();
+
+            if (!res.ok) {
+                throw new Error(data.message || data.error || 'Server returned ' + res.status);
+            }
         } catch(e) {
-            el.innerHTML = `<div class="msg-error">Recommendation failed: ${e.message}</div>`;
+            el.innerHTML = `<div class="msg-error">Request failed: ${e.message}</div>`;
+            return;
         }
+
+        // ── Safely read the correct field names from your API ──
+        const movies   = Array.isArray(data.recommendedMovies)   ? data.recommendedMovies   : [];
+        const theatres = Array.isArray(data.recommendedTheatres) ? data.recommendedTheatres : [];
+        const aiMsg    = data.aiSuggestion  || '';
+        const moodSum  = data.moodSummary   || '';
+        const zone     = data.seatZone      || '';
+
+        if (movies.length === 0 && theatres.length === 0) {
+            el.innerHTML = '<div class="msg-error">No recommendations returned. Try a different mood or city.</div>';
+            return;
+        }
+
+        // ── Render ──
+        let html = `<div class="rec-result">
+            <div class="rec-eyebrow">✦ AI Picks for "${mood}"</div>
+            ${moodSum ? `<div style="font-size:13px;color:var(--text2);margin-bottom:20px;font-weight:300;font-style:italic;">"${moodSum}"</div>` : ''}`;
+
+        if (movies.length > 0) {
+            html += `<div style="font-size:11px;color:var(--text3);letter-spacing:1px;text-transform:uppercase;margin-bottom:12px;">🎬 Movies for you</div>`;
+            movies.slice(0, 5).forEach(function(m, i) {
+                html += `<div class="rec-movie-item" onclick="openMovieModal(${m.id})">
+                    <div class="rec-movie-rank">${i + 1}</div>
+                    ${m.posterUrl ? `<img class="rec-poster" src="${m.posterUrl}" onerror="this.style.display='none'">` : ''}
+                    <div style="flex:1;min-width:0;">
+                        <div style="font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${m.title}</div>
+                        ${m.genre ? `<div style="font-size:12px;color:var(--text2);margin-top:2px;">${m.genre}</div>` : ''}
+                    </div>
+                    ${m.rating ? `<div style="flex-shrink:0;color:var(--gold);font-size:13px;font-weight:700;">★ ${Number(m.rating).toFixed(1)}</div>` : ''}
+                </div>`;
+            });
+        }
+
+        if (theatres.length > 0) {
+            html += `<div style="font-size:11px;color:var(--text3);letter-spacing:1px;text-transform:uppercase;margin:20px 0 12px;">🏛 Best theatres</div>`;
+            theatres.slice(0, 3).forEach(function(t) {
+                html += `<div class="rec-theatre-item">
+                    <div class="rec-theatre-name">${t.name}</div>
+                    <div class="rec-theatre-meta">${t.location}${t.vibeType ? ' · ' + t.vibeType : ''}${t.avgRating ? ' · ★ ' + t.avgRating : ''}</div>
+                </div>`;
+            });
+        }
+
+        if (aiMsg) {
+            html += `<div style="margin-top:20px;padding-top:16px;border-top:1px solid var(--border);font-size:13px;color:var(--text2);line-height:1.7;">${aiMsg}</div>`;
+        }
+
+        if (zone) {
+            html += `<div style="margin-top:12px;font-size:12px;color:var(--text3);">Recommended seat zone: <span style="color:var(--gold);font-weight:700;">${zone}</span></div>`;
+        }
+
+        html += `</div>`;
+        el.innerHTML = html;
     }
 
-    /* ── INIT ── */
     updateNav();
     loadHomeMovies();
 </script>

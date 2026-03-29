@@ -2,8 +2,8 @@ package com.reverix.reverix.service
 
 import com.reverix.reverix.dto.TmdbMovie
 import com.reverix.reverix.dto.TmdbMovieResponse
-import com.reverix.reverix.entities.Movie
-import com.reverix.reverix.repos.MovieRepository
+import com.reverix.reverix.entity.Movie
+import com.reverix.reverix.repository.MovieRepository
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.stereotype.Service
 import org.springframework.web.client.RestTemplate
