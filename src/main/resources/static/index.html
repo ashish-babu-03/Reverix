@@ -535,9 +535,9 @@
         const h = {};
         if (jwt) h['Authorization'] = 'Bearer ' + jwt;
         if (opts.body) h['Content-Type'] = 'application/json';
-        return fetch(API + path, { ...opts, headers: { ...h, ...(opts.headers||{}) } });
+        const url = 'https://reverix-production.up.railway.app' + (path.startsWith('/') ? path : '/' + path);
+        return fetch(url, { ...opts, headers: { ...h, ...(opts.headers||{}) } });
     }
-
     function fmt(dt) {
         if (!dt) return '—';
         try { return new Date(dt).toLocaleString('en-IN', { dateStyle: 'medium', timeStyle: 'short' }); }
