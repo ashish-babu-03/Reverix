@@ -532,9 +532,10 @@
     let currentPrice = 200;
 
     function apiFetch(path, opts = {}) {
-        const h = { 'Content-Type': 'application/json' };
+        const h = {};
         if (jwt) h['Authorization'] = 'Bearer ' + jwt;
-        return fetch(API + path, { ...opts, headers: { ...h, ...(opts.headers || {}) } });
+        if (opts.body) h['Content-Type'] = 'application/json';
+        return fetch(API + path, { ...opts, headers: { ...h, ...(opts.headers||{}) } });
     }
 
     function fmt(dt) {
