@@ -531,16 +531,26 @@
     let currentShow = null;
     let currentPrice = 200;
 
+    // function apiFetch(path, opts = {}) {
+    //     const h = {};
+    //     if (jwt) h['Authorization'] = 'Bearer ' + jwt;
+    //     if (opts.body) h['Content-Type'] = 'application/json';
+    //     const url = 'https://reverix-production.up.railway.app' + (path.startsWith('/') ? path : '/' + path);
+    //     return fetch(url, { ...opts, headers: { ...h, ...(opts.headers||{}) } });
+    // }
+
+
+    // fix
     function apiFetch(path, opts = {}) {
         const h = {};
         if (jwt) h['Authorization'] = 'Bearer ' + jwt;
         if (opts.body) h['Content-Type'] = 'application/json';
-        const url = 'https://reverix-production.up.railway.app' + path.startsWith('/');
 
-        console.log(API);
+        const url = new URL(path, 'https://reverix-production.up.railway.app').toString();
 
-        return fetch(url, { ...opts, headers: { ...h, ...(opts.headers||{}) } });
+        return fetch(url, { ...opts, headers: { ...h, ...(opts.headers || {}) } });
     }
+
     function fmt(dt) {
         if (!dt) return '—';
         try { return new Date(dt).toLocaleString('en-IN', { dateStyle: 'medium', timeStyle: 'short' }); }
