@@ -1,24 +1,29 @@
 # Reverix 🎬
 ### AI-Powered Smart Movie Booking Platform
 
-> "Tell me your mood — Reverix finds your perfect movie, 
->  theatre, and seat."
+> "Tell me your mood — Reverix finds your perfect movie, theatre, and seat."
 
 [![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.2.3-brightgreen)](https://spring.io/projects/spring-boot)
 [![Kotlin](https://img.shields.io/badge/Kotlin-1.9.22-purple)](https://kotlinlang.org)
 [![MySQL](https://img.shields.io/badge/MySQL-8.0-blue)](https://mysql.com)
-[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
 ---
 
 ## What is Reverix?
 
-Reverix is a smart movie booking REST API that goes beyond 
-just listing movies and seats. It understands your **mood**, 
-your **group**, and recommends the perfect movie + theatre + 
-seat zone — powered by AI.
+Reverix is a smart movie booking platform that goes beyond just listing movies and seats. It understands your **mood**, your **group**, and recommends the perfect movie + theatre + seat zone — powered by AI.
 
 Think BookMyShow meets an AI concierge.
+
+---
+
+## Screenshots
+
+### Home — Cinema, tuned to your mood
+![Home](screenshot-home.png)
+
+### AI Picks — Mood input → Ranked results
+![AI Recommendations](screenshot-ai.png)
 
 ---
 
@@ -30,9 +35,7 @@ Tell Reverix how you feel in plain English:
 - *"Romantic evening with my partner"*
 - *"Family of 7, want something light"*
 
-Reverix calls **Mistral 7B via OpenRouter** to analyze your 
-mood, match it to currently playing movies, recommend 
-theatres by vibe, and suggest the best seat zone.
+Reverix calls **Llama 3.3 70B via OpenRouter** to analyze your mood, match it to currently playing movies, recommend theatres by vibe, and suggest the best seat zone.
 
 ### Theatre Vibe Classification
 Every theatre is classified by its personality:
@@ -54,14 +57,10 @@ Every theatre is classified by its personality:
 | Solo | MIDDLE | Best screen experience |
 
 ### CinePrime Subscription
-Premium users get **early access** to tickets before 
-general public — similar to Amazon Prime early access. 
-Implemented with FIFO queue logic and role-based 
-access control.
+Premium users get **early access** to tickets before general public — implemented with FIFO queue logic and role-based access control.
 
 ### Real Movie Data
-Movies synced from **TMDb API** with automatic 
-mood-tag generation based on genre classification.
+Movies synced from **TMDb API** with automatic mood-tag generation based on genre classification.
 
 ---
 
@@ -74,9 +73,8 @@ mood-tag generation based on genre classification.
 | Security | Spring Security + JWT |
 | Database | MySQL 8 |
 | Migrations | Liquibase |
-| AI | OpenRouter + Mistral 7B (free) |
+| AI | OpenRouter + Llama 3.3 70B (free) |
 | Movies API | TMDb |
-| Hosting | Render.com |
 
 ---
 
@@ -90,19 +88,19 @@ Spring Security (JWT Filter)
      ▼
 REST Controllers
      │
-     ├── AuthController      → Register / Login
-     ├── MovieController     → TMDb sync + listing
-     ├── TheatreController   → Vibe-based recommendation
+     ├── AuthController           → Register / Login
+     ├── MovieController          → TMDb sync + listing
+     ├── TheatreController        → Vibe-based recommendation
      ├── RecommendationController → AI mood engine
-     └── BookingController   → Seat lock + confirm
+     └── BookingController        → Seat lock + confirm
      │
      ▼
 Service Layer
      │
-     ├── RecommendationService → OpenRouter/Mistral AI call
-     ├── TmdbService          → TMDb API sync
-     ├── BookingService       → FIFO queue + seat locking
-     └── TheatreService       → Vibe matching algorithm
+     ├── RecommendationService → OpenRouter/Llama AI call
+     ├── TmdbService           → TMDb API sync
+     ├── BookingService        → FIFO queue + seat locking
+     └── TheatreService        → Vibe matching algorithm
      │
      ▼
 MySQL Database (Liquibase migrations)
@@ -122,18 +120,18 @@ POST /api/auth/login       — Get JWT token
 
 ### Movies (Public)
 ```
-GET /api/movies/now-playing         — Currently showing
-GET /api/movies/popular             — Popular movies
-GET /api/movies/search?query=       — Search movies
-GET /api/movies/{id}                — Movie details
-GET /api/movies/rentable            — Movies to rent
+GET /api/movies/now-playing          — Currently showing
+GET /api/movies/popular              — Popular movies
+GET /api/movies/search?query=        — Search movies
+GET /api/movies/{id}                 — Movie details
+GET /api/movies/rentable             — Movies to rent
 ```
 
 ### Theatres (Public)
 ```
-GET /api/theatres                           — All theatres
-GET /api/theatres/city/{city}              — By city
-GET /api/theatres/city/{city}/vibe/{vibe}  — By vibe
+GET /api/theatres                             — All theatres
+GET /api/theatres/city/{city}                — By city
+GET /api/theatres/city/{city}/vibe/{vibe}    — By vibe
 GET /api/theatres/recommend?city=&groupType= — Smart recommend
 ```
 
@@ -141,7 +139,7 @@ GET /api/theatres/recommend?city=&groupType= — Smart recommend
 ```
 POST /api/recommend
 Body: {
-  "moodPrompt": "excited, going with friends",
+  "mood": "excited, going with friends",
   "city": "Chennai",
   "groupType": "friends",
   "groupSize": 5,
@@ -170,18 +168,19 @@ GET    /api/bookings/recommend-seats  — Smart seat picker
 ### Steps
 ```bash
 # Clone the repo
-git clone https://github.com/ashish-babu-03/reverix.git
-cd reverix
+git clone https://github.com/ashish-babu-03/Reverix.git
+cd Reverix
 
-# Set environment variables
-DATABASE_URL=jdbc:mysql://localhost:3306/reverix_db?createDatabaseIfNotExist=true
-DATABASE_USERNAME=root
-DATABASE_PASSWORD=yourpassword
-TMDB_API_KEY=your_tmdb_key
-OPENROUTER_API_KEY=your_openrouter_key
-JWT_SECRET=your_secret_key
+# Set these in src/main/resources/application.properties
+spring.datasource.url=jdbc:mysql://localhost:3306/reverix_db?createDatabaseIfNotExist=true
+spring.datasource.username=root
+spring.datasource.password=yourpassword
+tmdb.api.key=your_tmdb_key
+openrouter.api.key=your_openrouter_key
+openrouter.model=meta-llama/llama-3.3-70b-instruct:free
+app.jwt.secret=your_secret_key
 
-# Run (Liquibase creates all tables automatically)
+# Run — Liquibase creates all tables automatically
 ./gradlew bootRun
 ```
 
@@ -189,53 +188,26 @@ Server starts at `http://localhost:8080`
 
 ---
 
-## Live Demo
-
-🌐 **API Base URL:** `https://reverix.onrender.com`
-
-Test the AI recommendation:
-```bash
-curl -X POST https://reverix.onrender.com/api/recommend \
-  -H "Content-Type: application/json" \
-  -d '{
-    "moodPrompt": "feeling happy want to watch something fun",
-    "city": "Chennai",
-    "groupType": "friends",
-    "groupSize": 4,
-    "preferredZone": "MIDDLE"
-  }'
-```
-
----
-
 ## Key Design Decisions
 
 **Why Liquibase over Hibernate auto-create?**
-Version-controlled migrations mean any developer can clone 
-and run with zero manual DB setup. Each changeSet is 
-independently trackable and reversible.
+Version-controlled migrations mean any developer can clone and run with zero manual DB setup. Each changeSet is independently trackable and reversible.
 
-**Why OpenRouter + Mistral instead of GPT-4?**
-Mistral 7B on OpenRouter is completely free for development, 
-follows the same OpenAI-compatible API contract, and can be 
-swapped for any other LLM by changing one config line.
+**Why OpenRouter + Llama instead of GPT-4?**
+Llama 3.3 70B on OpenRouter is completely free for development, follows the same OpenAI-compatible API contract, and can be swapped for any other LLM by changing one config line.
 
 **Why ENUM columns for theatre vibe and seat zone?**
-Enforces data integrity at the database level — no invalid 
-vibe types can ever be inserted, even by direct DB access.
+Enforces data integrity at the database level — no invalid vibe types can ever be inserted, even by direct DB access.
 
 **Why 10-minute seat lock window?**
-Mirrors real booking platforms — long enough to complete 
-payment, short enough to prevent seat hoarding.
+Mirrors real booking platforms — long enough to complete payment, short enough to prevent seat hoarding.
 
 ---
 
 ## What I Learned
 
-- Designing multi-entity REST APIs with proper separation 
-  of concerns
-- Integrating third-party APIs (TMDb, OpenRouter) with 
-  graceful fallback handling
+- Designing multi-entity REST APIs with proper separation of concerns
+- Integrating third-party APIs (TMDb, OpenRouter) with graceful fallback handling
 - Implementing time-based resource locking (seat expiry)
 - Version-controlled database migrations with Liquibase
 - Role-based access control with Spring Security + JWT
@@ -246,10 +218,9 @@ payment, short enough to prevent seat hoarding.
 
 **Ashish Babu Z**
 - Email: ashish.babu.sde@gmail.com
-- LinkedIn: [linkedin.com/in/ashish-babu](https://linkedin.com)
+- LinkedIn: [linkedin.com/in/ashish-babu-z](https://linkedin.com/in/ashish-babu-z)
 - GitHub: [github.com/ashish-babu-03](https://github.com/ashish-babu-03)
 
 ---
 
-*Built as a portfolio project to demonstrate Spring Boot + 
-Kotlin backend engineering with AI integration.*
+*Built as a portfolio project to demonstrate Spring Boot + Kotlin backend engineering with AI integration.*
